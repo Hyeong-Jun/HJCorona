@@ -181,7 +181,7 @@ class App extends Component {
           &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors |
           Data from <a href="https://coronavirus-monitor.p.rapidapi.com/">rapidapi</a> |
           I am not responsible for the veracity of the information provided |
-          Developed by <a href="https://github.com/fteichma/">Fabian Teichmann</a>
+          Developed by <a href="https://github.com/Hyeong-Jun/">Hyeong Jun, Lee</a>
         </div>
         <div className="info-box" id="choices_desktop">
           <ul>
@@ -220,7 +220,7 @@ class App extends Component {
         </div>
         <div id="gh">
           <p>
-            <a href="https://github.com/fteichma/">
+            <a href="https://github.com/Hyeong-Jun">
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github - Logo" />
             </a>
           </p>
