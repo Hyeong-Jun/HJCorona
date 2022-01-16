@@ -1,11 +1,21 @@
 import React from 'react';
 
-const Covid =()=> {
+// const Covid =()=> {
+//   return (
+//     <div className='covid'>
+//       <h1>Covid</h1>
+//     </div>
+//   );
+// };
+
+import Maps from '../modules/Maps'
+
+function Covid() {
   return (
-    <div className='covid'>
-      <h1>Covid</h1>
+    <div className="Covid">
+      <Maps></Maps>
     </div>
   );
-};
+}
 
 export default Covid;

@@ -21,13 +21,13 @@ export const SidebarData = [
     path: '/Board',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
-  }/*,
+  },
   {
-    title: 'Team',
-    path: '/team',
+    title: 'WorldCorona',
+    path: '/WorldCorona',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
-  },
+  }/*,
   {
     title: 'Messages',
     path: '/messages',
