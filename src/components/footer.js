@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './footer.css';
 
-const Footer = () => {
+function Footer() {
     return (
         <footer id="footer">
             <div className="inner">

@@ -1,8 +1,11 @@
 .about_container {
+    text-align: center;
     padding: 0 20%;
     margin: 0px;
     width: 100%;
+    box-sizing: border-box;
 }
+
 .about_container p, h1 {
     padding-bottom: 30px;
 }
@@ -28,20 +31,19 @@ dl {
     max-width: 50%;
     height: auto !important;
     margin-bottom: 60px;
-    margin-left: 25%;
     margin-top: 30px;
-    text-align: center;
 }
 
 #imgCollage {
-    padding-top: 6%;
-    padding-left: 15%;
-    padding-bottom: 12%;
+    display: inline-block;
+    text-align: center;
+    /* margin: auto; */
+    width:70%;
 }
 
-#imgCollage img {
+/* #imgCollage img {
     display: inline-block;
     text-align: center;
     margin: auto;
     width:40%;
-}
+} */

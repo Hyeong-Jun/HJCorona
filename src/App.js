@@ -58,11 +58,11 @@ class App extends Component {
     }
 
     handleChange(event) {
-        this.setState({selected: event.target.value});
+        this.setState({selected: event.target.value});//selected에 event.target.value를 덮어쓰기
     }
 
     getData() {
-        // Cases by country
+        // 나라별 Case
         axios
             .get(
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php",
@@ -80,7 +80,7 @@ class App extends Component {
                 console.log(err);
             });
 
-        // Stats panel
+        // Stats 창
         axios
             .get(
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php",
@@ -91,7 +91,6 @@ class App extends Component {
                     }
                 }
             )
-<<<<<<< HEAD
             .then(response => {
                 this.setState({dataTotal: response.data})
             })
@@ -103,59 +102,6 @@ class App extends Component {
     componentDidMount() {
         this.getData();
     }
-=======
-          })
-          }
-        </LeafletMap>
-        <div id="attributions">
-          &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors |
-          Data from <a href="https://coronavirus-monitor.p.rapidapi.com/">rapidapi</a> |
-          I am not responsible for the veracity of the information provided |
-          Developed by <a href="https://github.com/Hyeong-Jun/">Hyeong Jun, Lee</a>
-        </div>
-        <div className="info-box" id="choices_desktop">
-          <ul>
-            <li className={this.state.selected === "cases" ? "active" : undefined} onClick={() => { this.setState({ selected: "cases" }) }}>
-              Cases
-            </li>
-            <li className={this.state.selected === "active" ? "active" : undefined} onClick={() => { this.setState({ selected: "active" }) }}>
-              Active
-            </li>
-            <li className={this.state.selected === "recovered" ? "active" : undefined} onClick={() => { this.setState({ selected: "recovered" }) }}>
-              Recovered
-            </li>
-            <li className={this.state.selected === "deaths" ? "active" : undefined} onClick={() => { this.setState({ selected: "deaths" }) }}>
-              Deaths
-            </li>
-          </ul>
-        </div>
-        <div className="info-box" id="total">
-          <p><b>Total cases </b><span style={{ color: '#A90000' }}>{this.state.dataTotal.total_cases}</span></p>
-          <p><b>New cases </b><span style={{ color: '#A90000' }}>{this.state.dataTotal.new_cases}</span></p>
-          <p><b>Total recovered </b><span style={{ color: '#28a745' }}>{this.state.dataTotal.total_recovered}</span></p>
-          <p><b>Total deaths </b><span>{this.state.dataTotal.total_deaths}</span></p>
-          <p><b>New deaths </b><span>{this.state.dataTotal.new_deaths}</span></p>
-          <div className="select">
-            <label htmlFor="select"><b>Choose a view</b></label>
-            <div id="select">
-              <select value={this.state.selected} name="select" onChange={this.handleChange}>
-                <option value="cases">Cases</option>
-                <option value="active">Active</option>
-                <option value="recovered">Recovered</option>
-                <option value="deaths">Deaths</option>
-              </select>
-              <ChevronDown size={"18px"} />
-            </div>
-          </div>
-        </div>
-        <div id="gh">
-          <p>
-            <a href="https://github.com/Hyeong-Jun">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github - Logo" />
-            </a>
-          </p>
-        </div>
->>>>>>> 073024fd97a75b408aa47c4c697c69bd27feb450
 
     render() {
         return (
