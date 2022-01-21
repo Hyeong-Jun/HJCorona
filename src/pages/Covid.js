@@ -1,5 +1,4 @@
 import React from 'react';
-
 // const Covid =()=> {
 //   return (
 //     <div className='covid'>
@@ -8,7 +7,7 @@ import React from 'react';
 //   );
 // };
 
-import Maps from '../modules/Maps'
+import Maps from '../modules/Maps';
 
 function Covid() {
   return (

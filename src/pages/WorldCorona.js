@@ -109,10 +109,7 @@ class WorldCorona extends Component {
                         <GeoJSON
                             data={worldGeoJSON}
                             style={() => ({weight: 0.5, color: "#292929", fillColor: "rgb(65, 65, 65)", fillOpacity: 1})}/> {
-                            this
-                                .state
-                                .data
-                                .map((value, index) => {
+                            this.state.data.map((value, index) => {
                                     let cases = value
                                         .cases
                                         .replace(/,/g, "");
@@ -147,8 +144,7 @@ class WorldCorona extends Component {
                                                     key={index}
                                                     position={countryCode.find((el) => el.name === value.country_name) && countryCode
                                                         .find((el) => el.name === value.country_name)
-                                                        .latlng
-}
+                                                        .latlng}
                                                     icon={customMarker(cases_ratio, rgb)}>
                                                     <Popup
                                                         className={'popup'}

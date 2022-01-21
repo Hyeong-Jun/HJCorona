@@ -6,21 +6,20 @@ import Covid from './pages/Covid';
 import About from './pages/About';
 import Board from './pages/Board';
 import WorldCorona from './pages/WorldCorona'
-// import Contents from './components/Contents';
-// import Footer from './components/footer';
-// import React from 'react'; function App() {   return (     <div
-// className="App">       <Router>         <Navbar />         <Routes>
+// import Contents from './components/Contents'; import Footer from
+// './components/footer'; import React from 'react'; function App() {   return (
+// <div className="App">       <Router>         <Navbar />         <Routes>
 // <Route path='/' element={<Covid/>} />           <Route path='/about'
 // element={<About/>} />           <Route path='/board' element={<Board/>} />
 // </Routes>       </Router>       {/*<Section />*/}       {/* <Contents /> */}
 // {/*<Footer />*/}     </div>   ); } export default App;
 import React, {Component, Fragment} from 'react';
-import {MapContainer as LeafletMap, GeoJSON, Marker, Popup} from 'react-leaflet';
-import worldGeoJSON from 'geojson-world-map';
+// import {MapContainer as LeafletMap, GeoJSON, Marker, Popup} from
+// 'react-leaflet'; import worldGeoJSON from 'geojson-world-map';
 import './styles.css';
-import countryCode from './countrycode-latlong';
+// import countryCode from './countrycode-latlong';
 import "leaflet/dist/leaflet.css";
-import {ChevronDown} from 'react-feather';
+// import {ChevronDown} from 'react-feather';
 
 import L from "leaflet";
 
@@ -58,7 +57,7 @@ class App extends Component {
     }
 
     handleChange(event) {
-        this.setState({selected: event.target.value});//selected에 event.target.value를 덮어쓰기
+        this.setState({selected: event.target.value}); //selected에 event.target.value를 덮어쓰기
     }
 
     getData() {
@@ -105,17 +104,17 @@ class App extends Component {
 
     render() {
         return (
-                <div>
-                    <Router>
-                        <Navbar/>
-                        <Routes>
-                            <Route path='/' element={<Covid/>}/>
-                            <Route path='/WorldCorona' element={<WorldCorona/>}/>
-                            <Route path='/about' element={<About/>}/>
-                            <Route path='/board' element={<Board/>}/>
-                        </Routes>
-                    </Router>
-                </div>
+            <div>
+                <Router>
+                    <Navbar/>
+                    <Routes>
+                        <Route path='/' element={<Covid/>}/>
+                        <Route path='/WorldCorona' element={<WorldCorona/>}/>
+                        <Route path='/about' element={<About/>}/>
+                        <Route path='/board' element={<Board/>}/>
+                    </Routes>
+                </Router>
+            </div>
         );
     }
 }
