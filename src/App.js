@@ -25,17 +25,17 @@ import L from "leaflet";
 
 // SVG to URL
 
-const customMarker = (ratio, rgb) => new L.icon({
-    iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
-            "e' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='24' fill=" +
-            "'%23" + rgb + "' fill-opacity='0.6' stroke='%23" + rgb + "' stroke-width='2'/%" +
-            "3E%3C/svg%3E%0A",
-    iconSize: 5 * ratio,
-    iconAnchor: [
-        2.5 * ratio,
-        2.5 * ratio
-    ]
-});
+// const customMarker = (ratio, rgb) => new L.icon({
+//     iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
+//             "e' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='24' fill=" +
+//             "'%23" + rgb + "' fill-opacity='0.6' stroke='%23" + rgb + "' stroke-width='2'/%" +
+//             "3E%3C/svg%3E%0A",
+//     iconSize: 5 * ratio,
+//     iconAnchor: [
+//         2.5 * ratio,
+//         2.5 * ratio
+//     ]
+// });
 
 const axios = require('axios');
 
