@@ -1209,8 +1209,8 @@
     }, {
         "timezones": "Asia/Seoul",
         "latlng": {
-            "latitude": 37,
-            "longitude": 127.5
+            "latitude": 37.5665,
+            "longitude": 126.9780
         },
         "name": "S. Korea",
         "country_code": "KR",
@@ -2092,8 +2092,8 @@
     }, {
         "timezones": "Asia/Damascus",
         "latlng": {
-            "latitude": 35,
-            "longitude": 138
+            "latitude": 33.5138,
+            "longitude": 36.2765
         },
         "name": "Syria",
         "country_code": "SY",

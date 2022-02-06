@@ -1,18 +1,11 @@
 // import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-// import Section from './components/section';
+import Section from './components/section';
 import Covid from './pages/Covid';
 import About from './pages/About';
 import Board from './pages/Board';
 import WorldCorona from './pages/WorldCorona'
-// import Contents from './components/Contents'; import Footer from
-// './components/footer'; import React from 'react'; function App() {   return (
-// <div className="App">       <Router>         <Navbar />         <Routes>
-// <Route path='/' element={<Covid/>} />           <Route path='/about'
-// element={<About/>} />           <Route path='/board' element={<Board/>} />
-// </Routes>       </Router>       {/*<Section />*/}       {/* <Contents /> */}
-// {/*<Footer />*/}     </div>   ); } export default App;
 import React, {Component, Fragment} from 'react';
 // import {MapContainer as LeafletMap, GeoJSON, Marker, Popup} from
 // 'react-leaflet'; import worldGeoJSON from 'geojson-world-map';
@@ -23,20 +16,6 @@ import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
 
-// SVG to URL
-
-const customMarker = (ratio, rgb) => new L.icon({
-    iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
-            "e' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='24' fill=" +
-            "'%23" + rgb + "' fill-opacity='0.6' stroke='%23" + rgb + "' stroke-width='2'/%" +
-            "3E%3C/svg%3E%0A",
-    iconSize: 5 * ratio,
-    iconAnchor: [
-        2.5 * ratio,
-        2.5 * ratio
-    ]
-});
-
 const axios = require('axios');
 
 class App extends Component {
@@ -44,7 +23,7 @@ class App extends Component {
         super();
         this.handleChange = this
             .handleChange
-            .bind(this);
+            .bind(this); // bind(this)는 function 안에서도 class 컴포넌트의 this를 사용할 수 있게 해줌
         this.state = {
             selected: "cases",
             data: [],
@@ -105,13 +84,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Router>
+                <Router basename="/HJCorona">
                     <Navbar/>
                     <Routes>
                         <Route path='/' element={<Covid/>}/>
-                        <Route path='/WorldCorona' element={<WorldCorona/>}/>
+                        <Route path='/worldCorona' element={<WorldCorona/>}/>
                         <Route path='/about' element={<About/>}/>
                         <Route path='/board' element={<Board/>}/>
+                        <Route path='/section' element={<Section/>}/>
                     </Routes>
                 </Router>
             </div>

@@ -12,28 +12,28 @@ export const SidebarData = [
   },
   {
     title: 'About',
-    path: '/About',
+    path: '/about',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
   {
     title: 'Board',
-    path: '/Board',
+    path: '/board',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
   {
     title: 'WorldCorona',
-    path: '/WorldCorona',
+    path: '/worldCorona',
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text'
-  }/*,
+  },
   {
-    title: 'Messages',
-    path: '/messages',
+    title: 'Section',
+    path: '/section',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
-  },
+  }/*
   {
     title: 'Support',
     path: '/support',

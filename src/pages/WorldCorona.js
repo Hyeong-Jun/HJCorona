@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {MapContainer as LeafletMap, GeoJSON, Marker, Popup} from 'react-leaflet';
 import worldGeoJSON from 'geojson-world-map';
 import '../styles.css';
-import countryCode from '../countrycode-latlong';
+import countryCode from '../countrycode-latlong.json';
 import "leaflet/dist/leaflet.css";
 import {ChevronDown} from 'react-feather';
 
@@ -11,10 +11,11 @@ import L from "leaflet";
 // SVG to URL
 
 const customMarker = (ratio, rgb) => new L.icon({
-    iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
-            "e' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='24' fill=" +
-            "'%23" + rgb + "' fill-opacity='0.6' stroke='%23" + rgb + "' stroke-width='2'/%" +
-            "3E%3C/svg%3E%0A",
+    // iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
+    //         "e' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='25' cy='25' r='24' fill=" +
+    //         "'%23" + rgb + "' fill-opacity='0.6' stroke='%23" + rgb + "' stroke-width='2'/%" +
+    //         "3E%3C/svg%3E%0A",
+    iconUrl: require("../resources/images/marker.png"),
     iconSize: 5 * ratio,
     iconAnchor: [
         2.5 * ratio,

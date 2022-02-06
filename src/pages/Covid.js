@@ -12,7 +12,7 @@ import Maps from '../modules/Maps';
 function Covid() {
   return (
     <div className="Covid">
-      <Maps></Maps>
+      <Maps/>
     </div>
   );
 }

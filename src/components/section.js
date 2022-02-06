@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './section.css';
+import Footer from './footer';
 
-const Section = () => {
+function Section() {
     return(
         <section id="banner">
             <div className="inner">
@@ -18,7 +19,6 @@ const Section = () => {
             </div>
         </section>
     );
-
 };
 
 export default Section;

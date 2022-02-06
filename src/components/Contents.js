@@ -5,7 +5,7 @@ import { Bar, Doughnut, Line } from "react-chartjs-2";
 // axios 라이브러리와 차트를 보여주기 위해 react.js의 차트.js 다운
 // npm install axios react-chartjs-2 --save
 import axios from "axios";
-const Contents = () => {
+function Contents (){
     const [confirmedData, setConfirmedData] = useState({});
     const [quarantinedData, setQuarantinedData] = useState({});
     const [comparedData, setComparedData] = useState({});
@@ -141,6 +141,6 @@ const Contents = () => {
             </div>
         </section>
     );
-};
+}
 
 export default Contents;
