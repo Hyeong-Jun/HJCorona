@@ -100,6 +100,15 @@ import axios from "axios";
 //         fetchEvents();
 //     }, []);
 // }
+function PopupContent({countryCode}) {
+    return (
+        <div>
+            {countryCode.name}
+            <br/>
+            {countryCode.capital}
+        </div>
+    );
+}
 
 function Maps() {
         const customMarker = new L.Icon({
@@ -118,13 +127,9 @@ function Maps() {
                 
                 {countryCode.map(cc => (
                     <Marker key={cc.name} position={[cc.latlng.latitude, cc.latlng.longitude]} icon={customMarker}>
-                        <li>
-                            <Popup>
-                                {cc.name}
-                                <br/>
-                                {cc.capital}
-                            </Popup>
-                        </li>
+                        <Popup>
+                            <PopupContent countryCode={cc}/>
+                        </Popup>
                     </Marker>
                 ))}
             </MapContainer>

@@ -19,68 +19,6 @@ import L from "leaflet";
 const axios = require('axios');
 
 class App extends Component {
-    constructor() {
-        super();
-        this.handleChange = this
-            .handleChange
-            .bind(this); // bind(this)는 function 안에서도 class 컴포넌트의 this를 사용할 수 있게 해줌
-        this.state = {
-            selected: "cases",
-            data: [],
-            dataTotal: [],
-            center: [
-                0, 0
-            ],
-            zoom: 3
-        };
-    }
-
-    handleChange(event) {
-        this.setState({selected: event.target.value}); //selected에 event.target.value를 덮어쓰기
-    }
-
-    getData() {
-        // 나라별 Case
-        axios
-            .get(
-                "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php",
-                {
-                    "headers": {
-                        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-                        "x-rapidapi-key": process.env.REACT_APP_API_KEY
-                    }
-                }
-            )
-            .then(response => {
-                this.setState({data: response.data.countries_stat})
-            })
-            .catch(err => {
-                console.log(err);
-            });
-
-        // Stats 창
-        axios
-            .get(
-                "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php",
-                {
-                    "headers": {
-                        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-                        "x-rapidapi-key": process.env.REACT_APP_API_KEY
-                    }
-                }
-            )
-            .then(response => {
-                this.setState({dataTotal: response.data})
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-
-    componentDidMount() {
-        this.getData();
-    }
-
     render() {
         return (
             <div>

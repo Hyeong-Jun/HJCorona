@@ -28,6 +28,7 @@ const axios = require('axios');
 class WorldCorona extends Component {
     constructor() {
         super();
+        this._isMounted = false;
         this.handleChange = this
             .handleChange
             .bind(this);
@@ -52,9 +53,10 @@ class WorldCorona extends Component {
             .get(
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php",
                 {
+                    "params" : { country: 'S-Korea' },
                     "headers": {
                         "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-                        "x-rapidapi-key": process.env.REACT_APP_API_KEY
+                        "x-rapidapi-key": "92f2bb5bbamsh9743e5ccf295a2ep1d8c9ajsn5955487eeedc"
                     }
                 }
             )
@@ -70,9 +72,10 @@ class WorldCorona extends Component {
             .get(
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php",
                 {
+                    "params" : { country: 'S-Korea' },
                     "headers": {
-                        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-                        "x-rapidapi-key": process.env.REACT_APP_API_KEY
+                        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.co",
+                        "x-rapidapi-key": "92f2bb5bbamsh9743e5ccf295a2ep1d8c9ajsn5955487eeedc"
                     }
                 }
             )
@@ -85,7 +88,12 @@ class WorldCorona extends Component {
     }
 
     componentDidMount() {
-        this.getData();
+        this._isMounted = false;
+        this._isMounted && this.getData();
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {
@@ -215,7 +223,7 @@ class WorldCorona extends Component {
                         <a href="https://coronavirus-monitor.p.rapidapi.com/">rapidapi</a>
                         | I am not responsible for the veracity of the information provided | Developed
                         by
-                        <a href="https://github.com/Hyeong-Jun/">Fabian Teichmann</a>
+                        <a href="https://github.com/Hyeong-Jun/">Hyeong-Jun</a>
                     </div>
                     <div className="info-box" id="choices_desktop">
                         <ul>
