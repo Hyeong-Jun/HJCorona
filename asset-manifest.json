@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/HJCorona/static/css/main.89d67411.css",
-    "main.js": "/HJCorona/static/js/main.2e7c7c09.js",
+    "main.css": "/HJCorona/static/css/main.7de79c12.css",
+    "main.js": "/HJCorona/static/js/main.84eed2f2.js",
     "static/js/787.28991286.chunk.js": "/HJCorona/static/js/787.28991286.chunk.js",
     "static/media/bg.png": "/HJCorona/static/media/bg.fa617f9a6cf1d2ec32dd.png",
     "static/media/image01.png": "/HJCorona/static/media/image01.b6c6be3adfdcf911c3fd.png",
@@ -10,12 +10,12 @@
     "static/media/marker.png": "/HJCorona/static/media/marker.b57ce6183cee9dc58fb3.png",
     "static/media/covid19-현미경-병원체-rev2.jpg": "/HJCorona/static/media/covid19-현미경-병원체-rev2.231c86f62713a07c40d7.jpg",
     "index.html": "/HJCorona/index.html",
-    "main.89d67411.css.map": "/HJCorona/static/css/main.89d67411.css.map",
-    "main.2e7c7c09.js.map": "/HJCorona/static/js/main.2e7c7c09.js.map",
+    "main.7de79c12.css.map": "/HJCorona/static/css/main.7de79c12.css.map",
+    "main.84eed2f2.js.map": "/HJCorona/static/js/main.84eed2f2.js.map",
     "787.28991286.chunk.js.map": "/HJCorona/static/js/787.28991286.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89d67411.css",
-    "static/js/main.2e7c7c09.js"
+    "static/css/main.7de79c12.css",
+    "static/js/main.84eed2f2.js"
   ]
 }
