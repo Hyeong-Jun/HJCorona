@@ -3,7 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Navbar.css';
+import '../css/Navbar.css';
 import { IconContext } from 'react-icons';
 
 function Navbar() {
@@ -26,12 +26,12 @@ function Navbar() {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
+            {SidebarData.map((item) => {
               return (
-                <li key={index} className={item.cName}>
+                <li key={item.title} className='nav-text'>
                   <Link to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
+                    <span className="navbar-span">{item.title}</span>
                   </Link>
                 </li>
               );

@@ -1996,7 +1996,7 @@
             "latitude": 46.83333333,
             "longitude": -56.33333333
         },
-        "name": "Saint Pierre and Miquelon",
+        "name": "Saint Pierre Miquelon",
         "country_code": "PM",
         "capital": "Saint-Pierre"
     }, {
@@ -2440,5 +2440,38 @@
         "name": "Zimbabwe",
         "country_code": "ZW",
         "capital": "Harare"
+    }, {
+        "timezones": "Africa/Jamestown",
+        "latlng": {
+            "latitude": -15.933333,
+            "longitude": -5.716667
+        },
+        "name": "Saint Helena",
+        "country_code": "SH",
+        "capital": "Jamestown"
+    }, {
+        "timezones": "America/Bonaire",
+        "latlng": {
+            "latitude": 12.201890,
+            "longitude": -68.262383
+        },
+        "name": "Caribbean Netherlands",
+        "country_code": "NL",
+        "capital": "Bonaire"
+    }, {
+        "timezones": "America/Sao Tome",
+        "latlng": {
+            "latitude": 0.255436,
+            "longitude": 6.602781
+        },
+        "name": "Sao Tome and Principe",
+        "country_code": "ST",
+        "capital": "Sao Tome"
+    }, { 
+        "latlng": {
+            "latitude": 52.442039,
+            "longitude": 4.829199
+        },
+        "name": "MS Zaandam"
     }
 ]

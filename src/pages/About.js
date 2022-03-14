@@ -1,5 +1,5 @@
 import React from 'react';
-import './about_css.css'
+import '../css/about_css.css'
 import imgCorona1 from "../covid19-현미경-병원체-rev2.jpg";
 import imgCorona2 from "../image01.png";
 import imgCorona3 from "../image02.png";

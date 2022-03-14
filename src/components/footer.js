@@ -1,58 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './footer.css';
+import '../css/footer.css';
 
-const Footer = () =>{
+const Footer = () => {
     return (
-        <footer id="footer">
+        <section id="footer" style={{"padding": "0px"}}>
             <div className="inner">
                 <header>
                     <h2>Get in Touch</h2>
                 </header>
-
-                <table text-align="center">
-                    <form method="post" action="#">
-                        <tr>
-                            <td>
-                                <div className="field half first">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="field half">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="email" id="email" />
-
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div className="field">
-                                    <label for="message">Message</label>
-                                    <textarea name="message" id="message" rows="6"></textarea>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <ul className="submit">
-                                    <li><input type="submit" value="Send Message" class="alt" /></li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </form>
-                </table>
+                <form method="post" action="#">
+                    <div className="field half first">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name"/>
+                    </div>
+                    <div className="field half">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email"/>
+                    </div>
+                    <div className="field">
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" rows="6"></textarea>
+                    </div>
+                    <ul className="actions">
+                        <li><input type="submit" value="Send Message" className="alt"/></li>
+                    </ul>
+                </form>
                 <div className="copyright">
-                    <Link to = "https://github.com/Hyeong-Jun/WebProgramming1" target="_blank">
-                        &copy; Github: Hyeong Jun, Lee
-                    </Link>
+                    &copy;Github: <a href="https://github.com/Hyeong-Jun/HJCorona">
+                        Hyeong Jun, Lee
+                    </a>
                 </div>
             </div>
-        </footer>
+        </section>
+
     );
 };
 

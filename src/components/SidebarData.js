@@ -1,43 +1,33 @@
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-
+import * as MdIcons from 'react-icons/md';
+import * as GiIcons from 'react-icons/gi';
+import * as RiIcons from 'react-icons/ri';
 export const SidebarData = [
   {
     title: 'Covid',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
+    icon: <FaIcons.FaVirus />
   },
   {
     title: 'About',
     path: '/about',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
+    icon: <IoIcons.IoIosPaper />
   },
   {
     title: 'Board',
     path: '/board',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
+    icon: <MdIcons.MdDashboard />
   },
   {
     title: 'WorldCorona',
     path: '/worldCorona',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
+    icon: <GiIcons.GiEarthAsiaOceania />
   },
   {
-    title: 'Section',
-    path: '/section',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text'
-  }/*
-  {
-    title: 'Support',
-    path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  }*/
+    title: 'Vaccine',
+    path: '/vaccine',
+    icon: <RiIcons.RiSyringeLine />
+  }
 ];

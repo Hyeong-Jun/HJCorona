@@ -94,10 +94,10 @@ function Contents (){
         fetchEvents();
     }, []);
     return (
-        <section>
-            <h2>국내 코로나 현황</h2>
+        // <section>
+            // <h2>국내 코로나 현황</h2>
             <div className="contents">
-                <div>
+                {/* <div> */}
                     <Bar
                         data={confirmedData}
                         options={
@@ -138,8 +138,8 @@ function Contents (){
                         }
                     />
                 </div>
-            </div>
-        </section>
+            // </div>
+        // </section>
     );
 }
 
