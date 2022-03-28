@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component, Fragment, useState} from 'react';
 import {MapContainer as LeafletMap, GeoJSON, Marker, Popup, ZoomControl} from 'react-leaflet';
 import worldGeoJSON from 'geojson-world-map';
 import '../css/WorldCorona.css';
@@ -6,7 +6,7 @@ import Footer from '../components/footer';
 import countryCode from '../countrycode-latlong.js';
 import {ChevronDown} from 'react-feather';
 import L from "leaflet";
-
+import WorldGraph from '../modules/WorldGraph';
 
 const customMarker = (ratio, rgb) => new L.icon({
     iconUrl: "data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='non" +
@@ -21,18 +21,20 @@ const customMarker = (ratio, rgb) => new L.icon({
 });
 
 const axios = require('axios');
-
+// var mql = window.matchMedia('(max-width: 360px)');
 class WorldCorona extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this._isMounted = false;
         this.handleChange = this
             .handleChange
             .bind(this);
         this.state = {
+            matches: window.matchMedia("(max-width: 360px)").matches,
             selected: "cases",
             data: [],
             dataTotal: [],
+            dailyConfirmedData: [],
             updateDay: "",
             center: [
                 0, 0
@@ -41,11 +43,24 @@ class WorldCorona extends Component {
         };
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({selected: event.target.value});
     }
 
-    getData() {
+    getData = () => {
+        axios
+            .get(
+                "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
+            )
+            .then(response => {
+                console.log(response);
+                this.setState({dailyConfirmedData: response.dailyConfirmedData});
+                console.log(this.state.dailyConfirmedData[0]);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            
         axios
             .get(
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php",
@@ -60,7 +75,7 @@ class WorldCorona extends Component {
                 }
             )
             .then(response => {
-                this.setState({data: response.data.countries_stat})
+                this.setState({data: response.data.countries_stat});
             })
             .catch(err => {
                 console.log(err);
@@ -80,7 +95,7 @@ class WorldCorona extends Component {
                 }
             )
             .then(response => {
-                this.setState({dataTotal: response.data})
+                this.setState({dataTotal: response.data});
             })
             .catch(err => {
                 console.log(err);
@@ -101,7 +116,7 @@ class WorldCorona extends Component {
             )
             .then(response => {
                 console.log(response)
-                this.setState({updateDay: response.data.statistic_taken_at})
+                this.setState({updateDay: response.data.statistic_taken_at});
             })
             .catch(err => {
                 console.log(err);
@@ -117,10 +132,17 @@ class WorldCorona extends Component {
         this._isMounted = false;
     }
 
+    componentDidUpdate() {
+        {this.state.matches? console.log("360px 이하") : console.log("360px 이상")}
+    }
+
+
+    
     render() {
+        
         return (
-            <Fragment className="main">
-                <div>
+            <Fragment>
+                <div className="main">
                     <div className="app-content">
                         <div className="app-right">
                             <div className="status_infoArea">
@@ -208,7 +230,7 @@ class WorldCorona extends Component {
                                             dragging={true}
                                             animate={true}
                                             easeLinearity={0.35}>
-                                            <ZoomControl className="WC" position="topright"/>
+                                            
                                             <GeoJSON
                                                 data={worldGeoJSON}
                                                 style={() => ({weight: 0.5, color: "#292929", fillColor: "rgb(65, 65, 65)", fillOpacity: 1})}/> {
@@ -382,7 +404,12 @@ class WorldCorona extends Component {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div className="info-box" id="total">
+                                            <div
+                                                className="info-box"
+                                                id="total"
+                                                style={{
+                                                    width: "100px"
+                                                }}>
                                                 <p>
                                                     <b>누적 확진
                                                     </b>
@@ -441,6 +468,7 @@ class WorldCorona extends Component {
                                             </div>
                                         </LeafletMap>
                                     </div>
+
                                     <div className="left-list">
                                         <div className="left-list-header">
                                             <div className="header-name">
@@ -458,10 +486,18 @@ class WorldCorona extends Component {
                                                             <div>
                                                                 <table>
                                                                     <thead>
-                                                                        나라이름
+                                                                        <tr>
+                                                                            <td>
+                                                                                나라이름
+                                                                            </td>
+                                                                        </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        {this.state.data.country_name}
+                                                                        <tr>
+                                                                            <td>
+                                                                                {this.state.data.country_name}
+                                                                            </td>
+                                                                        </tr>
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -475,6 +511,7 @@ class WorldCorona extends Component {
                             </div>
                         </div>
                     </div>
+                    <WorldGraph/>
                     <Footer/>
                 </div>
             </Fragment>
