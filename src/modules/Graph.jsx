@@ -107,8 +107,8 @@ function Graph(props) {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey={props.label_1} stroke="#8884d8"/>
-                    <Line type="monotone" dataKey={props.label_2} stroke="#87d110"/>
+                    <Line type="monotone" dataKey={props.label_1} stroke="#8884d8" dot={false} />
+                    <Line type="monotone" dataKey={props.label_2} stroke="#87d110" dot={false} />
                 </LineChart>
             </ResponsiveContainer>
         </div>
