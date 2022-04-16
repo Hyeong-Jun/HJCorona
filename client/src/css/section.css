@@ -1,0 +1,52 @@
+section #banner{
+    z-index: 1;
+    background-image: url(bg.png);
+    height: 500px;
+    color: white;
+    text-transform: uppercase;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  section #banner div.inner {
+    z-index: 2;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 40px;
+  }
+  
+  #banner .actions {
+    width: 90px;
+    padding: 8px;
+    margin: 20px 0px;
+    border: 1px solid white;
+    font-size: 8px;
+    text-align: center;
+  }
+  
+  #banner .actions a {
+    color: white;
+  }
+  
+  #banner .actions li {
+    list-style: none;
+  }
+  
+  #banner span {
+    font-weight: lighter;
+  }
+  
+  @media screen and (max-width: 768px) {
+    
+    #banner {
+      width: 100%;
+    }
+    
+    #footer {
+      padding: 2em 0 0.1em 0;
+    }
+    
+  }
