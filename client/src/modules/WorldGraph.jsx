@@ -316,15 +316,21 @@ function WorldGraph() {
                                             <div className="country-name">{countryName}</div>
                                             <div className="country-cases">{totalInfections}</div>
                                             <table border="1">
-                                                <tbody> 
+                                                <tbody>
+                                                {setOptions.label.map((item)=>{
+                                                    return (
                                                     <tr>
                                                         <td>
-                                                            {countryName}
+                                                            {/* {countryName} */}
+                                                            {item.label}
                                                         </td>
                                                         <td>
                                                             {totalInfections}
+                                                            
                                                         </td>
                                                     </tr>
+                                                    );
+                                                    })}
                                                 </tbody>
                                             </table>
                                             
