@@ -5,10 +5,12 @@ import About from './pages/About';
 import Board from './pages/Board';
 import WorldCorona from './pages/WorldCorona';
 import Vaccine from './pages/Vaccine';
-import React, {useState, Component} from 'react';
+import React, {useState} from 'react';
+import { MdSettingsInputAntenna } from 'react-icons/md';
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(true)
+
     return (
         <div className="app-root">
             <Router basename="/HJCorona">

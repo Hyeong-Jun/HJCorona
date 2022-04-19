@@ -22,6 +22,8 @@ function WorldGraph() {
     const [countriesSelected, setcountriesSelected] = useState([]);
     const [totalInfections, setTotalInfections] = useState(0);
     const [countryName, setCountryName] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [usePropStats, setUsePropStats] = useState(0);
     // api fetch
     const fetchData = async () => {
         const request = {
@@ -133,7 +135,7 @@ function WorldGraph() {
         setUpdateDate(index);
 
         // console.log("App onSliderChanged " + index);
-        updateData(index);
+        // updateData(index);
     }
 
     const onClickStart = (e) => {
@@ -191,11 +193,13 @@ function WorldGraph() {
         // console.log("on updateData           " + this.state.countriesSelected.join(' '));
 
         if (index === undefined || index === null) {
-            index = this.state.currentIndex;
+            // index = this.state.currentIndex;
+            index = currentIndex;
         }
 
         if (usePropStats === undefined || usePropStats === null) {
-            usePropStats = this.state.usePropStats;
+            // usePropStats = this.state.usePropStats;
+            setUsePropStats(usePropStats);
         }
 
         let thresholdProp = "totalInfections";
@@ -250,7 +254,7 @@ function WorldGraph() {
         }
 
         // console.log('App updateData ' + index + '  ' + usePropStats + '  ' + date);
-
+        
         this.setState({
             currentIndex: index,
             currentDate: date,
@@ -313,11 +317,11 @@ function WorldGraph() {
                                             </div>
                                         </div>
                                         <div className="left-list-live">
-                                            <div className="country-name">{countryName}</div>
-                                            <div className="country-cases">{totalInfections}</div>
+                                            {/* <div className="country-name">{countryName}</div>
+                                            <div className="country-cases">{totalInfections}</div> */}
                                             <table border="1">
                                                 <tbody>
-                                                {setOptions.label.map((item)=>{
+                                                {options.map((item)=>{
                                                     return (
                                                     <tr>
                                                         <td>
