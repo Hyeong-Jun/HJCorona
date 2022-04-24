@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Post from '../components/Post';
+import AddUser from '../components/AddUser';
+
 // import Post from '../components/Post';
 // import {dbService} from 'fBase';
 
@@ -61,22 +63,29 @@ function Board() {
 
     // const {classes} = this.props;
 
+    const stateRefresh = () => {
+        setCustomers({customers: ''});
+        fetchData();
+    }
     useEffect(() => {
-        const fetchData = async () => {
-            const request = {
-                method: "GET",
-                redirect: "follow"
-            }
-            const response = await fetch('/api/custodmers', request);
-            const body = await response.json();
-            setCustomers(body);
-            console.log("customers : ", body);
-        }
+        fetchData();
 
         fetchData().catch(console.error);;
     }, []);
 
+    const fetchData = async () => {
+        const request = {
+            method: "GET",
+            redirect: "follow"
+        }
+        const response = await fetch('/api/customers', request);
+        const body = await response.json();
+        setCustomers(body);
+        console.log("customers : ", body);
+    }
+
     return (
+        <div>
         <div>
             <table>
                 <thead>
@@ -95,7 +104,11 @@ function Board() {
                     }): ""}
                 </tbody>
             </table>
+            
         </div>
+        <AddUser stateRefresh={stateRefresh}/>
+        </div>
+        
     )
 }
 export default Board;

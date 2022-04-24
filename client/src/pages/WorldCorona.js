@@ -475,34 +475,6 @@ class WorldCorona extends Component {
                                             </div>
                                         </LeafletMap>
                                     </div>
-
-                                    {/* <div className="left-list">
-                                        <div className="left-list-header">
-                                            <div className="header-name">
-                                                Total Cases
-                                            </div>
-                                            <div className="header-value">
-                                                {this.state.dataTotal.total_cases}
-                                            </div>
-                                        </div>
-                                        <div className="left-list-live">
-                                            <div className="country-name">{this.state.data.country_name}</div>
-                                            <div className="country-cases">{this.state.dataTotal.total_cases}</div>
-                                            <table border="1">
-                                                <tbody> 
-                                                    <tr>
-                                                        <td>
-                                                            {this.state.data.country_name}
-                                                        </td>
-                                                        <td>
-                                                            {this.state.dataTotal.total_cases}
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            
-                                        </div>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>

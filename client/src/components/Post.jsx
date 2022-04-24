@@ -1,25 +1,5 @@
 import React from 'react';
 
-// function CustomerProfile (props) {
-//     return (
-//         <div>
-//             <img src={props.image} alt="profile"/>
-//             <h2>{props.name}({props.id})</h2>
-//         </div>
-//     )
-// }
-
-// function CustomerInfo (props) {
-//     return (
-//         <div>
-//             <h2>{props.name}</h2>
-//             <p>{props.birthday}</p>
-//             <p>{props.gender}</p>
-//             <p>{props.job}</p>
-//         </div>
-//     )
-// }
-
 // function Post(postObj, isOwner, props) {
 function Post(props) {
     // const [editing, setEditing] = useState(false);
