@@ -1,5 +1,7 @@
 import React from 'react';
-
+import DeleteUser from './DeleteUser';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
 // function Post(postObj, isOwner, props) {
 function Post(props) {
     // const [editing, setEditing] = useState(false);
@@ -18,15 +20,25 @@ function Post(props) {
 
     return (
         // <div className='post'>
-        
-            <tr>
-                <td>{props.id}</td>
-                <td><img src={props.image} alt="profile"/></td>
-                <td>{props.name}</td>
-                <td>{props.birthday}</td>
-                <td>{props.gender}</td>
-                <td>{props.job}</td>
-            </tr>
+        <TableRow>
+            <TableCell>{props.id}</TableCell>
+            <TableCell><img src={props.image} alt="profile"/></TableCell>
+            <TableCell>{props.name}</TableCell>
+            <TableCell>{props.birthday}</TableCell>
+            <TableCell>{props.gender}</TableCell>
+            <TableCell>{props.job}</TableCell>
+            <TableCell><DeleteUser stateRefresh={props.stateRefresh} id={props.id} /></TableCell>
+            
+        </TableRow>
+            // <tr>
+            //     <td>{props.id}</td>
+            //     <td><img src={props.image} alt="profile"/></td>
+            //     <td>{props.name}</td>
+            //     <td>{props.birthday}</td>
+            //     <td>{props.gender}</td>
+            //     <td>{props.job}</td>
+            //     <td><DeleteUser stateRefresh={props.stateRefresh} id={props.id} /></td>
+            // </tr>
             // <CustomerProfile id={props.id} image={props.image} name={props.name}/> */}
             // <CustomerInfo birthday={props.birthday} gender={props.gender} job={props.job}/> */}
         

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
+const app = express('./express');
 const port = process.env.PORT || 5000;
 const fs = require('fs');
 
@@ -10,7 +10,7 @@ const fs = require('fs');
 
 
 app.use(bodyParser.json());
-console.log(express.json());
+// console.log(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const data = fs.readFileSync('./database.json');
@@ -32,7 +32,7 @@ const upload = multer({dest: './upload'}) // 사용자로부터 프로필 이미
 
 app.get('/api/customers', (req, res) => {
     connection.query(
-        "SELECT * FROM USER",
+        "SELECT * FROM USER WHERE isDeleted = 0",
         (err, rows, fields)=>{
             res.send(rows);
             console.log(rows);
@@ -40,30 +40,12 @@ app.get('/api/customers', (req, res) => {
             console.log("Select Success");
         }
     );
-    // res.send([ // json형식으로 받아온다
-    //     {
-    //         'id': 1,
-    //         'image': 'https://placeimg.com/64/64/1',
-    //         'name': '이형준',
-    //         'birthday': '970000',
-    //         'gender': '남자',
-    //         'job': '대학생'
-    //     },
-    //     {
-    //         'id': 2,
-    //         'image': 'https://placeimg.com/64/64/2',
-    //         'name': '이형준',
-    //         'birthday': '970000',
-    //         'gender': '남자',
-    //         'job': '대학생'
-    //     }
-    // ]);
 });
 // 필요할때마다 서버에게 데이터를 요청해서 화면에 보여준다
 
 app.use('/image', express.static(__dirname + '/upload')); // 이를 통해서 /image 경로를 통해 uploads 디렉토리에 포함된 파일을 로드할 수 있음
 app.post('/api/customers', upload.single('image'), (req, res)=>{
-    let sql='INSERT INTO USER VALUES (null, ?, ?, ?, ?, ?) ';
+    let sql='INSERT INTO USER VALUES (null, ?, ?, ?, ?, ?, NOW(), 0) ';
     let image = '/image/' + req.file.filename; // binary 명
     let name = req.body.name;
     console.log("name:",req.body.name);
@@ -85,4 +67,20 @@ app.post('/api/customers', upload.single('image'), (req, res)=>{
         })
 });
 
+app.delete('/api/customers/:id', (req,res) => {
+    let sql = 'UPDATE USER SET isDeleted = 1 WHERE id = ?';
+    let params = [req.params.id];
+    connection.query(sql, params,
+        (err, rows, fields) => {
+            res.send(rows);
+        })
+})
+
 app.listen(port, ()=>console.log(`Listening on port ${port}`));
+process.on('SIGTERM', () => {
+    server.close(() => {
+      setTimeout(() => {
+        process.exit(0);
+      }, 1000);
+    });
+});
