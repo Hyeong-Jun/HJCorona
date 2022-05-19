@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import Post from '../components/Post';
 import AddUser from '../components/AddUser';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import InputBase from '@material-ui/core/InputBase';
-import { CircularProgress } from '@material-ui/core';
-
+// import Paper from '@material-ui/core/Paper';
+// import Table from '@material-ui/core/Table';
+// import TableHead from '@material-ui/core/TableHead';
+// import TableBody from '@material-ui/core/TableBody';
+// import TableRow from '@material-ui/core/TableRow';
+// import TableCell from '@material-ui/core/TableCell';
+// import InputBase from '@material-ui/core/InputBase';
+// import { CircularProgress } from '@material-ui/core';
+import { Paper, Table, TableHead, TableCell, TableBody, TableRow, InputBase, CircularProgress} from '@mui/material';
 // import Link from 'next/link';
 // import AppLayout from '../components/AppLayout';
 
@@ -71,15 +71,18 @@ import { CircularProgress } from '@material-ui/core';
 // }
 class Board extends React.Component {
     // const [customers, setCustomers] = useState('');
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
         this.state = {
             customers: "",
             searchKeyword: '',
+            completed: 0
         }
+        this.stateRefresh = this.stateRefresh.bind(this);
+        this.handleValueChange = this.handleValueChange.bind(this)
     }
 
-    stateRefresh = () => {
+    stateRefresh() {
         this.setState({
             customers: '',
             searchKeyword: '',
@@ -108,6 +111,11 @@ class Board extends React.Component {
         return body;
     }
 
+    progress = () => {
+        const { completed } = this.state;
+        this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
+    }
+        
     render() {
         const filteredComponents = (data) => {
             data = data.filter((c)=>{
@@ -154,16 +162,23 @@ class Board extends React.Component {
                         <TableCell>설정</TableCell>
                     </TableHead>
                     <TableBody>
-                        {/* {this.state.customers? this.state.customers.map((c)=> {
-                            return (<Post key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job}/>)
-                        }): <h1>loading...</h1>} */}
-                        {this.state.customers? filteredComponents(this.state.customers):
+                        {this.state.customers ?
+                            this.state.customers.map(c => {
+                                return <Post stateRefresh={this.stateRefresh} key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} />
+                            }):
+                            <TableRow>
+                                <TableCell colSpan="6" align="center">
+                                    <CircularProgress variant="determinate" value={this.state.completed} />
+                                </TableCell>
+                            </TableRow>
+                        }
+                        {/* {this.state.customers? filteredComponents(this.state.customers):
                         <TableRow>
-                            <TableCell colSpan="6" align="center">
-                                <CircularProgress variant="determinate" value={this.state.completed}/>
+                            <TableCell>
+                                <CircularProgress className={classes.progress} variant="determinate" value={this.state.completed} />
                             </TableCell>
                         </TableRow>
-                        }
+                        } */}
                     </TableBody>
                 </Table>
                 

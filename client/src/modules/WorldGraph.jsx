@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Graph from './Graph';
 import Select from 'react-select';
-import {Slider} from '@mui/material';
+// import {Slider} from '@mui/material';
 
 function WorldGraph() {
 
@@ -304,7 +304,7 @@ function WorldGraph() {
                                     </span>
                                     <span class="MuiTouchRipple-root"></span>
                                 </button>
-                                <Slider className="slider" onChange={onSliderChangeIndex} value={currentValue} min={minValue} max={maxValue} />
+                                {/* <Slider className="slider" onChange={onSliderChangeIndex} value={currentValue} min={minValue} max={maxValue} /> */}
                                 <div className="value">{updateDate}</div>
                             </div>
                             <div className="left-list">

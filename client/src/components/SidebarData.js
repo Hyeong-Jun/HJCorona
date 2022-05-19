@@ -18,7 +18,7 @@ export const SidebarData = [
     title: 'Board',
     path: '/board',
     icon: <MdIcons.MdDashboard />
-  },
+  }
   // {
   //   title: 'Vaccine',
   //   path: '/vaccine',

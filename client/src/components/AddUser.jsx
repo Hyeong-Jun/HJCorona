@@ -1,18 +1,18 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { post } from 'axios';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions'; 
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import {withStyles} from '@material-ui/core/styles';
-
-const styles = theme => ({
-    hidden: {
-        display: 'none'
-    }
-})
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions'; 
+// import DialogTitle from '@material-ui/core/DialogTitle';
+// import DialogContent from '@material-ui/core/DialogContent';
+// import TextField from '@material-ui/core/TextField';
+// import Button from '@material-ui/core/Button';
+// import {withStyles} from '@material-ui/core/styles';
+import {Button, Dialog, DialogActions, DialogTitle, DialogContent, TextField, Input} from '@mui/material';
+// const styles = theme => ({
+//     hidden: {
+//         display: 'none'
+//     }
+// })
 
 class AddUser extends React.Component {
     constructor(props) {
@@ -105,7 +105,6 @@ class AddUser extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
         return (
             <div>
                 <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
@@ -114,7 +113,7 @@ class AddUser extends React.Component {
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>사용자 추가</DialogTitle>
                     <DialogContent>
-                        <input className={classes.hidden} id="raised-button-file" accept="image/*" type="file" file={this.state.file} onChange={this.handleFileChange}/><br/>
+                        <Input id="raised-button-file" accept="image/*" type="file" file={this.state.file} onChange={this.handleFileChange}></Input><br/>
                         <label htmlFor="raised-button-file">
                             <Button variant="contained" color="primary" name="file">
                                 {this.state.fileName === "" ? "프로필 이미지 선택" : this.state.fileName}
@@ -146,7 +145,7 @@ class AddUser extends React.Component {
     }
 }
 
-export default withStyles(styles)(AddUser);
+export default AddUser;
 // function AddUser(props) {
 //     const [file, setFile] = useState(null); // null: byte 형식 초기화
 //     const [name, setName] = useState('');
