@@ -1,7 +1,5 @@
 import React from 'react';
 import DeleteUser from './DeleteUser';
-// import TableRow from '@material-ui/core/TableRow'; import TableCell from
-// '@material-ui/core/TableCell';
 import {TableRow, TableCell} from '@mui/material';
 
 class Post extends React.Component {

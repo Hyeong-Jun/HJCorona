@@ -44,7 +44,7 @@ app.get('/api/customers', (req, res) => {
 // 필요할때마다 서버에게 데이터를 요청해서 화면에 보여준다
 
 app.use('/image', express.static(__dirname + '/upload')); // 이를 통해서 /image 경로를 통해 uploads 디렉토리에 포함된 파일을 로드할 수 있음
-app.post('/api/customers', upload.single('image'), (req, res)=>{
+app.post('/api/customers/', upload.single('image'), (req, res)=>{
     let sql='INSERT INTO USER VALUES (null, ?, ?, ?, ?, ?, NOW(), 0) ';
     let image = '/image/' + req.file.filename; // binary 명
     let name = req.body.name;
@@ -61,7 +61,7 @@ app.post('/api/customers', upload.single('image'), (req, res)=>{
     console.log(params);
     connection.query(sql, params,
         (err, rows, fields)=>{
-            res.send("hello:", rows);
+            res.status(200).json({completed: true});
             console.log(err);
             console.log(rows);
         })

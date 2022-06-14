@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Graph from './Graph';
 import Select from 'react-select';
-// import {Slider} from '@mui/material';
+import {Slider} from '@mui/material';
 
 function WorldGraph() {
 
@@ -304,10 +304,10 @@ function WorldGraph() {
                                     </span>
                                     <span class="MuiTouchRipple-root"></span>
                                 </button>
-                                {/* <Slider className="slider" onChange={onSliderChangeIndex} value={currentValue} min={minValue} max={maxValue} /> */}
+                                <Slider className="slider" onChange={onSliderChangeIndex} value={currentValue} min={minValue} max={maxValue} />
                                 <div className="value">{updateDate}</div>
                             </div>
-                            <div className="left-list">
+                            {/* <div className="left-list">
                                         <div className="left-list-header">
                                             <div className="header-name">
                                                 Total Cases
@@ -317,15 +317,12 @@ function WorldGraph() {
                                             </div>
                                         </div>
                                         <div className="left-list-live">
-                                            {/* <div className="country-name">{countryName}</div>
-                                            <div className="country-cases">{totalInfections}</div> */}
                                             <table border="1">
                                                 <tbody>
                                                 {options.map((item)=>{
                                                     return (
                                                     <tr>
                                                         <td>
-                                                            {/* {countryName} */}
                                                             {item.label}
                                                         </td>
                                                         <td>
@@ -339,7 +336,7 @@ function WorldGraph() {
                                             </table>
                                             
                                         </div>
-                                    </div>
+                                </div> */}
                         </div>
             }
         </div>

@@ -8,11 +8,7 @@ import { post } from 'axios';
 // import Button from '@material-ui/core/Button';
 // import {withStyles} from '@material-ui/core/styles';
 import {Button, Dialog, DialogActions, DialogTitle, DialogContent, TextField, Input} from '@mui/material';
-// const styles = theme => ({
-//     hidden: {
-//         display: 'none'
-//     }
-// })
+import '../css/addUser.css';
 
 class AddUser extends React.Component {
     constructor(props) {
@@ -106,24 +102,26 @@ class AddUser extends React.Component {
 
     render() {
         return (
-            <div>
-                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
-                    사용자 추가
+            <div style={{textAlign: "center"}}>
+                <Button className="add-button" variant="contained" color="primary" onClick={this.handleClickOpen}>
+                    추가
                 </Button>
-                <Dialog open={this.state.open} onClose={this.handleClose}>
+                <Dialog style={{textAlign: "center"}} open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>사용자 추가</DialogTitle>
-                    <DialogContent>
-                        <Input id="raised-button-file" accept="image/*" type="file" file={this.state.file} onChange={this.handleFileChange}></Input><br/>
-                        <label htmlFor="raised-button-file">
+                    <DialogContent style={{left:"35px"}}>
+                        <input style={{textAlign: "center"}} id="raised-button-file" accept="image/*" type="file" file={this.state.file} onChange={this.handleFileChange}/><br/>
+                        <br/><label htmlFor="raised-button-file">
                             <Button variant="contained" color="primary" name="file">
-                                {this.state.fileName === "" ? "프로필 이미지 선택" : this.state.fileName}
+                                {this.state.fileName === "" ? "사진" : this.state.fileName}
                             </Button>
                         </label>
-                        <br/>
-                        <TextField label="이름" type="text" name="userName" value={this.state.userName} onChange={this.handleValueChange}/><br/>
-                        <TextField label="생년월일" type="text" name="birthday" value={this.state.birthday} onChange={this.handleValueChange}/><br/>
-                        <TextField label="성별" type="text" name="gender" value={this.state.gender} onChange={this.handleValueChange}/><br/>
-                        <TextField label="직업" type="text" name="job" value={this.state.job} onChange={this.handleValueChange}/><br/>
+                        <br/><br/>
+                        <div style={{textAlign:"center"}}>
+                            <TextField style={{textAlign:"center"}} type="text" name="userName" value={this.state.userName} onChange={this.handleValueChange}/><br/><br/>
+                            <TextField style={{textAlign:"center"}} type="text" name="birthday" value={this.state.birthday} onChange={this.handleValueChange}/><br/><br/>
+                            <TextField style={{textAlign:"center"}} type="text" name="gender" value={this.state.gender} onChange={this.handleValueChange}/><br/><br/>
+                            <TextField style={{textAlign:"center"}} type="text" name="job" value={this.state.job} onChange={this.handleValueChange}/><br/><br/>
+                        </div>
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" color="primary" onClick={this.handleFormSubmit}>추가</Button>
@@ -146,120 +144,3 @@ class AddUser extends React.Component {
 }
 
 export default AddUser;
-// function AddUser(props) {
-//     const [file, setFile] = useState(null); // null: byte 형식 초기화
-//     const [name, setName] = useState('');
-//     const [birthday, setBirthday] = useState('');
-//     const [gender, setGender] = useState('');
-//     const [job, setJob] = useState('');
-//     const [filename, setFilename] = useState('');
-//     const [frmData, setFrmData] = useState({ 
-//         file: null,
-//         name: '', 
-//         birthday: '',
-//         gender: '',
-//         job: '',
-//         filename: '',
-//     });
-//     const form = useRef(null)
-
-//     useEffect(()=>{
-//         Axios.get('/api/customers').then((response)=>{
-//             setFrmData(response.data);
-//             console.log("useEffect:",response.data);
-//         })
-//     })
-//     const handleFormSubmit = (e) => {
-//         e.prevenDefault(); // 데이터가 서버로 전달할때 오류 발생 막음
-//         addUser()
-//         .then((response)=>{
-//             console.log(response.data);
-//             props.stateRefresh();
-//         });
-//         console.log("frmData:",frmData);
-//         setFrmData({
-//             file: null,
-//             name: '', 
-//             birthday: '',
-//             gender: '',
-//             job: '',
-//             filename: ''
-//         });
-//         // const data = new FormData(form.current);
-//         // data.append('image', file);
-//         // data.append('name', name);
-//         // data.append('birthday', birthday);
-//         // data.append('gender', gender);
-//         // data.append('job', job);
-//         // console.log(data);
-//         // const config = { // 파일이 포함된 데이터를 서버에 전송하려면 웹 표준에 맞는 헤더를 추가한다
-//         //     headers: {
-//         //         'content-type': 'multipart/form-data' // 전달하려는 데이터에 파일이 포함할때
-//         //     }
-//         // }
-//         // return Axios.post('/api/customers', data, config);
-//         // Axios.post('/api/customers', ()=>{
-//         //     const data = new FormData(form.current);
-//         //     data.append('image', file);
-//         //     data.append('name', name);
-//         //     data.append('birthday', birthday);
-//         //     data.append('gender', gender);
-//         //     data.append('job', job);
-//         // }).then(()=>{
-//         //     console.log("usccessful insert");
-//         // });
-        
-//     }
-
-//     const handleFileChange = (event) => { // 웹에 파일 업로드할때 하나의 파일만 선택 : files[0]
-//         // var fileIndex = e.target.files[0];
-//         // var fileNameIndex = e.target.value;
-
-//         // setFile(fileIndex);
-//         // setFilename(fileNameIndex);
-//         setFile({file: event.target.files[0]});
-//         // console.log("file:",file);
-//         setFilename({filename:event.target.value});
-//     }
-
-//     const handleValueChange = (e) => {
-//         // let nextState = {}; // 사용자가 변경한 값을 비교하여 그에 맞게 변경
-//         // nextState[e.target.name] = e.target.value;
-//         setFrmData({
-//             ...frmData,
-//             [e.target.name]: e.target.value
-//             }
-//         );
-//         console.log("frmData:", frmData);
-//     }
-    
-//     const addUser = () => {
-//         const url = '/api/customers';
-//         const data = new FormData(form.current);
-//         data.append('image', file);
-//         data.append('name', name);
-//         data.append('birthday', birthday);
-//         data.append('gender', gender);
-//         data.append('job', job);
-//         console.log(data);
-//         const config = { // 파일이 포함된 데이터를 서버에 전송하려면 웹 표준에 맞는 헤더를 추가한다
-//             headers: {
-//                 'content-type': 'multipart/form-data' // 전달하려는 데이터에 파일이 포함할때
-//             }
-//         }
-//         return Axios.post(url, data, config);
-//     }
-//     return (
-//         <div>
-//         <form ref={form} onSubmit={handleFormSubmit}>
-//             <h1> 이용자 추가 </h1>
-//             프로필 이미지: <input type="file" name="filename" onChange={handleFileChange}/><br/>
-//             이름: <input type="text" name="name" onChange={handleValueChange}/><br/>
-//             생년월일: <input type="text" name="birthday" onChange={handleValueChange}/><br/>
-//             성별: <input type="text" name="gender" onChange={handleValueChange}/><br/>
-//             직업 : <input type="text" name="job" onChange={handleValueChange}/><br/>
-//             <button type="submit">추가하기</button>
-//         </form>
-//         </div>
-//     );
-// }
